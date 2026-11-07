@@ -188,45 +188,44 @@
         <script>
             // تعريف مصفوفة الـ 8 بلانرات وكل واحدة بصورتها المختلفة
             const studyItems = [
-                { title: "مسار طب وعلوم الحياة (فيزياء)", img: "images/med-lang.jpg" },
-                { title: "مسار طب وعلوم الحياة (رياضة)", img: "images/med-math.jpg" },
-                { title: "مسار هندسة وعلوم الحاسوب (كيمياء)", img: "images/eng-chem.jpg" },
-                { title: "مسار هندسة وعلوم الحاسوب (برمجة)", img: "images/eng-prog.jpg" },
-                { title: "مسار اداره اعمال (اداره اعمال)", img: "images/bus-admin.jpg" },
-                { title: "مسار اداره اعمال (محاسبة)", img: "images/bus-acc.jpg" },
-                { title: "مسار آداب و فنون (لغه فرنسيه)", img: "images/arts-fr.jpg" },
-                { title: "مسار آداب و فنون (علم نفس)", img: "images/arts-psy.jpg" }
-            ];
+    { title: "مخطط دحيحة هانم", desc: "مسار طب وعلوم الحياة (فيزياء)", img: "images/med-lang.jpg" },
+    { title: "مخطط دحيحة هانم", desc: "مسار طب وعلوم الحياة (رياضة)", img: "images/med-math.jpg" },
+    { title: "مخطط دحيحة هانم", desc: "مسار هندسة وعلوم الحاسوب (كيمياء)", img: "images/eng-chem.jpg" },
+    { title: "مخطط دحيحة هانم", desc: "مسار هندسة وعلوم الحاسوب (برمجة)", img: "images/eng-prog.jpg" },
+    { title: "مخطط دحيحة هانم", desc: "مسار اداره اعمال (اداره اعمال)", img: "images/bus-admin.jpg" },
+    { title: "مخطط دحيحة هانم", desc: "مسار اداره اعمال (محاسبة)", img: "images/bus-acc.jpg" },
+    { title: "مخطط دحيحة هانم", desc: "مسار آداب و فنون (لغه فرنسيه)", img: "images/arts-fr.jpg" },
+    { title: "مخطط دحيحة هانم", desc: "مسار آداب و فنون (علم نفس)", img: "images/arts-psy.jpg" }
+];
 
             studyItems.forEach((item, idx) => {
-                let id = idx + 1;
-                document.write(`
-                    <div class="product-card">
-                        <div class="slider-container">
-                            <!-- صورة واحدة خاصة بكل بلانر من المصفوفة -->
-                            <img src="${item.img}" class="active-img" alt="${item.title}" style="width: 100%; border-radius: 10px;">
-                        </div>
-                        <div class="product-info">
-                            <h4>${item.title}</h4>
-                            <p>مخطط متكامل لمتابعة تحصيل الدروس وجدول المذاكرة بانتظام</p>
-                            
-                            <!-- قائمة اختيار النسخة الإجبارية (ستيكر أو ورق مقوى) -->
-                            <div class="form-group" style="margin-bottom: 10px; text-align: right;">
-                                <label style="font-size: 12px; font-weight: bold; color: var(--deep-pink);">اختر النسخة:</label>
-                                <select id="version-${id}" style="width: 100%; padding: 6px; border-radius: 6px; border: 1px solid var(--gray-border); background: var(--pure-white); color: var(--text-dark);">
-                                    <option value="" disabled selected>-- اختر النسخة --</option>
-                                    <option value="نسخة ستيكر">نسخة ستيكر</option>
-                                    <option value="نسخة ورق مقوى">نسخة ورق مقوى</option>
-                                </select>
-                            </div>
+    let id = idx + 1;
+    document.write(`
+        <div class="product-card">
+            <div class="slider-container">
+                <!-- صورة خاصة بكل بلانر من المصفوفة -->
+                <img src="${item.img}" class="active-img" alt="${item.title}" style="width: 100%; border-radius: 10px;">
+            </div>
+            <div class="product-info">
+                <h4>${item.title}</h4>
+                <p style="color: #555; font-weight: bold; font-size: 14px;">${item.desc}</p>
+            </div>
+            
+            <!-- قائمة اختيار النسخة الإجبارية -->
+            <div class="form-group" style="margin-bottom: 10px; text-align: right;">
+                <label style="font-size: 12px; font-weight: bold; color: var(--deep-pink);">اختر النسخة:</label>
+                <select id="version-${id}" style="width: 100%; padding: 6px; border-radius: 6px; border: 1px solid var(--gray-border); background: #fff;">
+                    <option value="" disabled selected>-- اختر النسخة --</option>
+                    <option value="نسخة ستيكر">نسخة ستيكر</option>
+                    <option value="نسخة ورق مقوى">نسخة ورق مقوى</option>
+                </select>
+            </div>
 
-                            <div class="price">80 جنيه</div>
-                            <button class="buy-btn" onclick="checkAndAddToCart('${item.title}', 80, 'version-${id}')">إضافة للسلة 🛍️</button>
-                        </div>
-                    </div>
-                `);
-            });
-
+            <div class="price">80 جنيه</div>
+            <button class="buy-btn" onclick="checkAndAddToCart('${item.title} - ${item.desc}', 80, 'version-${id}')">إضافة للسلة 🛒</button>
+        </div>
+    `);
+});
             // دالة التحقق من اختيار النسخة الإجبارية قبل الإضافة للسلة
             function checkAndAddToCart(title, price, selectId) {
                 let selectElement = document.getElementById(selectId);
