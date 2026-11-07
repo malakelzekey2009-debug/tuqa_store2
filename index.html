@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuqa Store - متجر أدوات تنظيم ومخططات</title>
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="tuqastyle.css">
+    <!-- مكتبة الأيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="logo-area">
+            <img src="tuqa_Logo.jpeg" alt="Tuqa Store Logo" class="brand-logo">
+            <h2>Tuqa Store</h2>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="#" onclick="showSection('home')">home</a>
+            <a href="#" onclick="showSection('about-us')">about us</a>
+            <a href="#" onclick="showSection('how-to-order')">how to order</a>
+        </nav>
+
+        <div class="header-left">
+            
+            <!-- زرار الدارك مود -->
+            <button class="dark-mode-btn" onclick="toggleDarkMode()" title="تغيير الوضع">
+                <i class="fas fa-moon" id="dark-icon"></i>
+            </button>
+            
+            <!-- سلة المشتريات -->
+            <div class="cart-icon" onclick="openCartModal()">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- الهيرو سكشن -->
+    <div id="home-hero" class="hero">
+        <h1>Welcome to Tuqa Store ✨</h1>
+        <p>Planners for organizing your life, cute planners, and handmade crafts made with love just for you!</p>
+    </div>
+
+    <div class="container">
+
+        <!-- 1. قسم من نحن (About Us) -->
+        <div id="about-us" class="products-section">
+            <button class="back-home-btn" onclick="showSection('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
+            <div class="about-card">
+                <h2>قصتنا ✨ من أين بدأت الحكاية؟</h2>
+                <p>بدأت فكرة <b>Tuqa Store</b> من شغفنا بالتنظيم والجمال.. لاحظنا كيف تترك الأدوات الكيوت والهادئة أثراً إيجابياً في نفسيتنا أثناء الدراسة والعمل وتنظيم الأيام. من هنا قررنا تصميم ودمج أروع البلانرز والمخططات الدراسية والأعمال اليدوية التي تمنحك طاقة إيجابية لتنظيم روتينك بكل حب وبهجة.</p>
+                <h3>ما الذي يميزنا؟ 🌸</h3>
+                <p>نقدم لكِ تصاميم فريدة وعصرية، جودة ورق ممتازة، وأسعار مناسبة لمساعدتك في تحقيق أهدافك بأرقى ستايل.</p>
+            </div>
+        </div>
+
+        <!-- الأقسام الرئيسية بالصفحة الرئيسية -->
+        <div id="main-categories">
+            <h2 class="section-title">تسوقي حسب احتياجك  🛍️</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="showSection('planners')">
+                    <i class="fas fa-book-open fa-2x" style="color:var(--deep-pink); margin-bottom:10px;"></i>
+                    <h3>📅  Planners</h3>
+                </div>
+                <div class="category-card" onclick="showSection('study-planners')">
+                    <i class="fas fa-graduation-cap fa-2x" style="color:var(--deep-pink); margin-bottom:10px;"></i>
+                    <h3>📚 Study Planners</h3>
+                </div>
+                <div class="category-card" onclick="showSection('handmade')">
+                    <i class="fas fa-paint-brush fa-2x" style="color:var(--deep-pink); margin-bottom:10px;"></i>
+                    <h3>🎨   Handmade </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. قسم طريقة الطلب -->
+        <div id="how-to-order" class="products-section">
+            <button class="back-home-btn" onclick="showSection('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
+            <h2 class="section-title">كيف تطلبين من Tuqa Store؟ 🌸</h2>
+            <div class="info-box">
+                <p>1. تصفحي أقسام الموقع واختاري المنتجات التي ترغبين بها.</p>
+                <p>2. اضغطي على زر <b>"إضافة للسلة 🛒"</b>.</p>
+                <p>3. افتحي سلة المشتريات أعلى الشاشة واضغطي <b>"إتمام الطلب"</b>.</p>
+                <p>4. املئي استمارة البيانات (الاسم، رقم الواتساب، العنوان، وطريقة الدفع الفضلة).</p>
+                <p>5. يتم إرسال طلبك فوراً وسيتم التواصل معك لتأكيد الشحن لحد باب البيت!</p>
+            </div>
+        </div>
+
+        <!-- 3. قسم البلانرز (5 منتجات) -->
+        <div id="planners" class="products-section">
+            <button class="back-home-btn" onclick="showSection('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
+            <h2 class="section-title">Planners  📅</h2>
+            <div class="products-grid">
+                
+                <!-- بلانر 1 -->
+                <div class="product-card">
+                    <div class="slider-container" id="slider-p1">
+                        <img src="https://via.placeholder.com/300x200/ffc0cb/333?text=Planner+Setra+1" class="active-img" alt="بلانر سترة a5">
+                        <img src="https://via.placeholder.com/300x200/e0f7fa/333?text=Planner+Setra+2" alt="بلانر سترة a5">
+                        <button class="slider-btn prev-btn" onclick="prevSlide('slider-p1')">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="nextSlide('slider-p1')">&#10095;</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>بلانر سترة a5</h4>
+                        <p>تصميم أنيق وراقي يساعدك في تنظيم يومك بأسلوب مريح ومرتب.</p>
+                        <div class="price sold-out">Sold Out</div>
+                        <button class="buy-btn disabled-btn" disabled>نفدت الكمية</button>
+                    </div>
+                </div>
+
+                <!-- بلانر 2 -->
+                <div class="product-card">
+                    <div class="slider-container" id="slider-p2">
+                        <img src="https://via.placeholder.com/300x200/ffeb3b/333?text=Katkout+Mahfouz+1" class="active-img" alt="بلانر كتكوت محفوظ a4">
+                        <img src="https://via.placeholder.com/300x200/ffc0cb/333?text=Katkout+Mahfouz+2" alt="بلانر كتكوت محفوظ a4">
+                        <button class="slider-btn prev-btn" onclick="prevSlide('slider-p2')">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="nextSlide('slider-p2')">&#10095;</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>بلانر كتكوت محفوظ a4</h4>
+                        <p>مساحة واسعة لمتابعة كافة الأهداف والمهام اليومية والأسبوعية.</p>
+                        <div class="price sold-out">Sold Out</div>
+                        <button class="buy-btn disabled-btn" disabled>نفدت الكمية</button>
+                    </div>
+                </div>
+
+                <!-- بلانر 3 -->
+                <div class="product-card">
+                    <div class="slider-container" id="slider-p3">
+                        <img src="https://via.placeholder.com/300x200/e0f7fa/333?text=Katkout+Nasran+1" class="active-img" alt="بلانر كتكوت نعسان 3 شهور a5">
+                        <img src="https://via.placeholder.com/300x200/ffc0cb/333?text=Katkout+Nasran+2" alt="بلانر كتكوت نعسان 3 شهور a5">
+                        <button class="slider-btn prev-btn" onclick="prevSlide('slider-p3')">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="nextSlide('slider-p3')">&#10095;</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>بلانر كتكوت نعسان 3 شهور a5</h4>
+                        <p>مخطط لطيف يكفي لمدة 3 شهور متواصلة لتنظيم عاداتك والمهام.</p>
+                        <div class="price sold-out">Sold Out</div>
+                        <button class="buy-btn disabled-btn" disabled>نفدت الكمية</button>
+                    </div>
+                </div>
+
+                <!-- بلانر 4 -->
+                <div class="product-card">
+                    <div class="slider-container" id="slider-p4">
+                        <img src="https://via.placeholder.com/300x200/008080/fff?text=Ramadan+Planner+1" class="active-img" alt="بلانر رمضان شهر واحد a5">
+                        <img src="https://via.placeholder.com/300x200/ffc0cb/333?text=Ramadan+Planner+2" alt="بلانر رمضان شهر واحد a5">
+                        <button class="slider-btn prev-btn" onclick="prevSlide('slider-p4')">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="nextSlide('slider-p4')">&#10095;</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>بلانر رمضان شهر واحد a5</h4>
+                        <p>مخطط مخصص لمتابعة العبادات والمهام في الشهر الكريم.</p>
+                        <div class="price">35 جنيه</div>
+                        <button class="buy-btn" onclick="addToCart('بلانر رمضان شهر واحد a5', 35)">إضافة للسلة 🛒</button>
+                    </div>
+                </div>
+
+                <!-- بلانر 5 -->
+                <div class="product-card">
+                    <div class="slider-container" id="slider-p5">
+                        <img src="https://via.placeholder.com/300x200/ffeb3b/333?text=Katkout+On+Beach+1" class="active-img" alt="كتكوت عالبلاج 3 شهور a5">
+                        <img src="https://via.placeholder.com/300x200/e0f7fa/333?text=Katkout+On+Beach+2" alt="كتكوت عالبلاج 3 شهور a5">
+                        <button class="slider-btn prev-btn" onclick="prevSlide('slider-p5')">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="nextSlide('slider-p5')">&#10095;</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>كتكوت عالبلاج 3 شهور a5</h4>
+                        <p>بلانر مبهج بروح الصيف لتخطيط الأهداف اليومية لمدة 3 شهور.</p>
+                        <div class="price">105 جنيه</div>
+                        <button class="buy-btn" onclick="addToCart('كتكوت عالبلاج 3 شهور a5', 105)">إضافة للسلة 🛒</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 4. قسم المخططات الدراسية (8 مخططات) -->
+        <!-- قسم المخططات الدراسية (Study Planners) -->
+<div id="study-planners" class="products-section">
+    <button class="back-home-btn" onclick="showSection('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
+    <h2 class="section-title">Study Planners 📚</h2>
+    <div class="products-grid">
+        <script>
+            // تعريف مصفوفة الـ 8 بلانرات وكل واحدة بصورتها المختلفة
+            const studyItems = [
+                { title: "مسار طب وعلوم الحياة (لغات)", img: "images/med-lang.jpg" },
+                { title: "مسار طب وعلوم الحياة (رياضة)", img: "images/med-math.jpg" },
+                { title: "مسار هندسة وعلوم الحاسوب (كيمياء)", img: "images/eng-chem.jpg" },
+                { title: "مسار هندسة وعلوم الحاسوب (برمجة)", img: "images/eng-prog.jpg" },
+                { title: "مسار اداره اعمال (اداره اعمال)", img: "images/bus-admin.jpg" },
+                { title: "مسار اداره اعمال (محاسبة)", img: "images/bus-acc.jpg" },
+                { title: "مسار آداب و فنون (لغه فرنسيه)", img: "images/arts-fr.jpg" },
+                { title: "مسار آداب و فنون (علم نفس)", img: "images/arts-psy.jpg" }
+            ];
+
+            studyItems.forEach((item, idx) => {
+                let id = idx + 1;
+                document.write(`
+                    <div class="product-card">
+                        <div class="slider-container">
+                            <!-- صورة واحدة خاصة بكل بلانر من المصفوفة -->
+                            <img src="${item.img}" class="active-img" alt="${item.title}" style="width: 100%; border-radius: 10px;">
+                        </div>
+                        <div class="product-info">
+                            <h4>${item.title}</h4>
+                            <p>مخطط متكامل لمتابعة تحصيل الدروس وجدول المذاكرة بانتظام</p>
+                            
+                            <!-- قائمة اختيار النسخة الإجبارية (ستيكر أو ورق مقوى) -->
+                            <div class="form-group" style="margin-bottom: 10px; text-align: right;">
+                                <label style="font-size: 12px; font-weight: bold; color: var(--deep-pink);">اختر النسخة:</label>
+                                <select id="version-${id}" style="width: 100%; padding: 6px; border-radius: 6px; border: 1px solid var(--gray-border); background: var(--pure-white); color: var(--text-dark);">
+                                    <option value="" disabled selected>-- اختر النسخة --</option>
+                                    <option value="نسخة ستيكر">نسخة ستيكر</option>
+                                    <option value="نسخة ورق مقوى">نسخة ورق مقوى</option>
+                                </select>
+                            </div>
+
+                            <div class="price">80 جنيه</div>
+                            <button class="buy-btn" onclick="checkAndAddToCart('${item.title}', 80, 'version-${id}')">إضافة للسلة 🛍️</button>
+                        </div>
+                    </div>
+                `);
+            });
+
+            // دالة التحقق من اختيار النسخة الإجبارية قبل الإضافة للسلة
+            function checkAndAddToCart(title, price, selectId) {
+                let selectElement = document.getElementById(selectId);
+                let selectedVersion = selectElement.value;
+                
+                if (!selectedVersion) {
+                    alert("من فضلك اختر نوع النسخة (ستيكر أو ورق مقوى) أولاً قبل الإضافة للسلة! ✨");
+                    selectElement.focus();
+                    return;
+                }
+                
+                let fullTitle = title + " (" + selectedVersion + ")";
+                addToCart(fullTitle, price);
+            }
+        </script>
+    </div>
+</div>
+
+        <!-- 5. قسم الهاند ميد (3 منتجات) -->
+        <div id="handmade" class="products-section">
+            <button class="back-home-btn" onclick="showSection('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
+            <h2 class="section-title">Handmade   🎨</h2>
+            <div class="products-grid">
+                
+                <!-- هاند ميد 1 -->
+                <div class="product-card">
+                    <div class="slider-container" id="slider-h1">
+                        <img src="https://via.placeholder.com/300x200/ffc0cb/333?text=Handmade+1-1" class="active-img" alt="ماديلية جزع شجرة اسم مقاس صغير">
+                        <img src="https://via.placeholder.com/300x200/008080/fff?text=Handmade+1-2" alt="ماديلية جزع شجرة اسم مقاس صغير">
+                        <button class="slider-btn prev-btn" onclick="prevSlide('slider-h1')">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="nextSlide('slider-h1')">&#10095;</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>ماديلية جزع شجرة اسم مقاس صغير</h4>
+                        <p>ميدالية خشبية طبيعية محفورة يدوياً باحترافية.</p>
+                        <div class="price">70 جنيه</div>
+                        <button class="buy-btn" onclick="addToCart('ماديلية جزع شجرة اسم مقاس صغير', 70)">إضافة للسلة 🛒</button>
+                    </div>
+                </div>
+
+                <!-- هاند ميد 2 -->
+                <div class="product-card">
+                    <div class="slider-container" id="slider-h2">
+                        <img src="https://via.placeholder.com/300x200/ffeb3b/333?text=Handmade+2-1" class="active-img" alt="ماديلية جزع نخلة رسمة مقاس صغير">
+                        <img src="https://via.placeholder.com/300x200/e0f7fa/333?text=Handmade+2-2" alt="ماديلية جزع نخلة رسمة مقاس صغير">
+                        <button class="slider-btn prev-btn" onclick="prevSlide('slider-h2')">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="nextSlide('slider-h2')">&#10095;</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>ماديلية جزع نخلة رسمة مقاس صغير</h4>
+                        <p>ميدالية بتصاميم ورسومات رقيقة ومميزة.</p>
+                        <div class="price">75 جنيه</div>
+                        <button class="buy-btn" onclick="addToCart('ماديلية جزع نخلة رسمة مقاس صغير', 75)">إضافة للسلة 🛒</button>
+                    </div>
+                </div>
+
+                <!-- هاند ميد 3 -->
+                <div class="product-card">
+                    <div class="slider-container" id="slider-h3">
+                        <img src="https://via.placeholder.com/300x200/008080/fff?text=Handmade+3-1" class="active-img" alt="ماديلية جزع نخله مقاس وسط">
+                        <img src="https://via.placeholder.com/300x200/ffc0cb/333?text=Handmade+3-2" alt="ماديلية جزع نخله مقاس وسط">
+                        <button class="slider-btn prev-btn" onclick="prevSlide('slider-h3')">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="nextSlide('slider-h3')">&#10095;</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>ماديلية جزع نخله مقاس وسط</h4>
+                        <p>ميدالية جزع نخل مقاس متوسط بتفاصيل عالية الدقة.</p>
+                        <div class="price">110 جنيه</div>
+                        <button class="buy-btn" onclick="addToCart('ماديلية جزع نخله مقاس وسط', 110)">إضافة للسلة 🛒</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- نافذة سلة المشتريات وإتمام الطلب (Formspree) -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <h3>سلة المشتريات 🛍️</h3>
+            <div id="cart-items-container" style="margin-bottom: 15px; max-height: 150px; overflow-y: auto;">
+                <p style="text-align: center; color: #666;">السلة فارغة حالياً</p>
+            </div>
+            <div id="cart-total" style="font-weight: bold; text-align: left; margin-bottom: 15px; color: var(--deep-pink);">المجموع: 0 جنيه</div>
+
+            <!-- النموذج مربوط بـ Formspree URL المحدد -->
+            <form action="https://formspree.io/f/xzeeqrqz" method="POST" enctype="multipart/form-data" onsubmit="return validateCheckout()"> 
+                
+                <input type="hidden" id="cart-summary-input" name="cart_summary" value="">
+
+                <div class="form-group">
+                    <label>الاسم بالكامل:</label>
+                    <input type="text" name="customer_name" required placeholder="اكتبي اسمك بالكامل">
+                </div>
+
+                <div class="form-group">
+                    <label>رقم الواتساب:</label>
+                    <input type="tel" name="whatsapp_number" required placeholder="01xxxxxxxx">
+                </div>
+
+                <div class="form-group">
+                    <label>العنوان بالتفصيل:</label>
+                    <textarea name="customer_address" rows="3" required placeholder="المحافظة، المدينة، الشارع، رقم المنزل"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>طريقة الدفع:</label>
+                    <select name="payment_method" id="paymentMethod" onchange="toggleReceipt()" required>
+                        <option value="فودافون كاش">فودافون كاش (رقم المحفظة: 010XXXXXXXX)</option>
+                        <option value="الدفع عند الاستلام">الدفع عند الاستلام</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="receiptGroup">
+                     <label>صورة إيصال التحويل (مطلوبة لفودافون كاش):</label>
+                     <input type="file" id="receiptInput" name="receipt_image" accept="image/*">
+                </div>
+
+                <button type="submit" class="submit-order-btn">إتمام وتأكيد الطلب ✨</button>
+                <button type="button" class="submit-order-btn close-modal" onclick="closeCartModal()">إغلاق</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tuqa Store ✨</h3>
+                <p>وجهتك الأولى لتنظيم حياتك وأيامك بأرقى البلانرز والمخططات الدراسية والأعمال اليدوية.</p>
+                <p><i class="fas fa-shipping-fast"></i> متاح الشحن داخل دمياط  🚚</p>
+            </div>
+            <div class="footer-section">
+                <h3>طرق الدفع </h3>
+                <p><i class="fas fa-wallet"></i> فودافون كاش: 01007857405</p>
+            </div>
+            <div class="footer-section">
+                <h3> تواصلوا معنا علي  </h3>
+                <div class="social-circles">
+                    <a href="https://www.facebook.com/share/1J55zLP4yX/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/tuqa_._store?obrf=NzduMXZyc3o1amlh" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@to.to9578?is_from_webapp=1&sender_device=pc" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/201007857405" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © Tuqa Store 2026</p>
+        </div>
+    </footer>
+
+    <!-- الجافا سكريبت -->
+    <script>
+        let cart = [];
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.products-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            
+            const hero = document.getElementById('home-hero');
+            const mainCat = document.getElementById('main-categories');
+
+            if(sectionId === 'home') {
+                hero.style.display = 'block';
+                mainCat.style.display = 'block';
+            } else {
+                hero.style.display = 'none';
+                mainCat.style.display = 'none';
+                document.getElementById(sectionId).classList.add('active');
+            }
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function nextSlide(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const imgs = slider.querySelectorAll('img');
+            let currentIndex = Array.from(imgs).findIndex(img => img.classList.contains('active-img'));
+            imgs[currentIndex].classList.remove('active-img');
+            let nextIndex = (currentIndex + 1) % imgs.length;
+            imgs[nextIndex].classList.add('active-img');
+        }
+
+        function prevSlide(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const imgs = slider.querySelectorAll('img');
+            let currentIndex = Array.from(imgs).findIndex(img => img.classList.contains('active-img'));
+            imgs[currentIndex].classList.remove('active-img');
+            let prevIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+            imgs[prevIndex].classList.add('active-img');
+        }
+
+        function addToCart(productName, price) {
+            cart.push({name: productName, price: price});
+            updateCartUI();
+            alert('تمت إضافة "' + productName + '" إلى السلة بنجاح! 🛍️');
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            let container = document.getElementById('cart-items-container');
+            let summaryInput = document.getElementById('cart-summary-input');
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666;">السلة فارغة حالياً</p>';
+                document.getElementById('cart-total').innerText = 'المجموع: 0 جنيه';
+                summaryInput.value = '';
+                return;
+            }
+
+            let html = '<ul style="padding-right: 20px; margin:0;">';
+            let total = 0;
+            let summaryText = '';
+
+            cart.forEach((item, index) => {
+                html += `<li>${item.name} - ${item.price} جنيه</li>`;
+                total += item.price;
+                summaryText += `${index + 1}. ${item.name} (${item.price} جنيه)\n`;
+            });
+            html += '</ul>';
+
+            container.innerHTML = html;
+            document.getElementById('cart-total').innerText = 'المجموع: ' + total + ' جنيه';
+            summaryInput.value = summaryText + '\nالمجموع الكلي: ' + total + ' جنيه';
+        }
+
+        function openCartModal() {
+            if(cart.length === 0) {
+                alert('سلة المشتريات فارغة! اختاري بعض المنتجات أولاً.');
+                return;
+            }
+            document.getElementById('cartModal').style.display = 'flex';
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        // دالة إظهار أو إخفاء خانة رفع الإيصال حسب طريقة الدفع
+        function toggleReceipt() {
+            let paymentMethod = document.getElementById("paymentMethod").value;
+            let receiptGroup = document.getElementById("receiptGroup");
+             let receiptInput = document.getElementById("receiptInput");
+
+             if (paymentMethod.includes("فودافون كاش")) {
+              receiptGroup.style.display = "block";
+              receiptInput.required = true; // بنخليه إجباري
+             } else {
+              receiptGroup.style.display = "none";
+              receiptInput.required = false; // مش إجباري لو دفع عند الاستلام
+              receiptInput.value = ""; // بيسيب الإيصال فاضي لو اتغيرت الطريقة
+    }
+}
+
+// دالة التحقق عند الضغط على إتمام وتأكيد الطلب
+        function validateCheckout() {
+             let paymentMethod = document.getElementById("paymentMethod").value;
+             let receiptInput = document.getElementById("receiptInput");
+
+    // لو اختار فودافون كاش ومحطش صوره الإيصال
+             if (paymentMethod.includes("فودافون كاش") && receiptInput.files.length === 0) {
+             alert("من فضلك قم برفع صوره إيصال التحويل (فودافون كاش) لإتمام الطلب! 📸");
+            receiptInput.focus();
+            return false; // يمنع إرسال النموذج
+    }
+            return true; // يسمح بالإرسال لو كل الشروط تمام
+}
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('dark-icon');
+            if(document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+    </script>
+
+</body>
+</html>
