@@ -130,8 +130,9 @@ header {
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(135deg, var(--soft-lightblue), var(--blush-pink));
-    margin-bottom: 30px;
+background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('images/rose.jpeg');
+    background-size: cover;
+    background-position: center;    margin-bottom: 30px;
 }
 
 .hero h2 {
