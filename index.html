@@ -222,7 +222,7 @@
             </div>
 
             <div class="price">55 جنيه</div>
-            <button class="buy-btn" onclick="checkAndAddToCart('${item.title} - ${item.desc}', 80, 'version-${id}')">إضافة للسلة 🛒</button>
+            <button class="buy-btn" onclick="checkAndAddToCart('${item.title} - ${item.desc}', 55, 'version-${id}')">إضافة للسلة 🛒</button>
         </div>
     `);
 });
@@ -322,14 +322,14 @@
     
     <div class="form-group">
         <label>رقم الموبايل:</label>
-        <input type="tel" name="whatsapp_number" required placeholder="01xxxxxxxx">
+        <input type="tel" name="whatsapp_number" required placeholder="01007857405">
     </div>
 
     <div class="form-group">
         <label>العنوان بالتفصيل:</label>
         <textarea name="customer_address" rows="3" required placeholder="المحافظة، المدينة، الشارع، رقم المنزل"></textarea>
     </div>
-        <input type="hidden" name="order_details" id="order-details-input">
+        <input type="hidden" name="order_details" id="cart-summary-input">
     <!-- تنبيه طريقة الدفع الجديد (بدون فودافون كاش) -->
     <div class="form-group" style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
         <p style="margin: 0; font-weight: bold; color: #333;">💳 طريقة الدفع:</p>
@@ -406,11 +406,29 @@
             imgs[prevIndex].classList.add('active-img');
         }
 
-        function addToCart(productName, price) {
-            cart.push({name: productName, price: price});
-            updateCartUI();
-            alert('تمت إضافة "' + productName + '" إلى السلة بنجاح! 🛍️');
+        function addToCart(productName, price, versionSelectId) {
+    let selectedVersion = "";
+    
+    // لو فيه خانة اختيار نسخة للمنتج ده، نتأكد إن العميل اختارها
+    if (versionSelectId) {
+        let versionSelect = document.getElementById(versionSelectId);
+        selectedVersion = versionSelect ? versionSelect.value : "";
+        
+        if (!selectedVersion) {
+            alert("من فضلك اختر النسخة أولاً (ستيكر أو ورق مقوى)!");
+            return;
         }
+    }
+
+    // إضافة المنتج للمصفوفة (سواء بنسخة أو من غير نسخة)
+    cart.push({
+        name: selectedVersion ? `${productName} (${selectedVersion})` : productName,
+        price: price
+    });
+
+    updateCartUI();
+    alert("تمت إحالة '" + productName + (selectedVersion ? ` - ${selectedVersion}` : '') + "' إلى السلة بنجاح 🛒");
+}
 
         function updateCartUI() {
             document.getElementById('cart-count').innerText = cart.length;
